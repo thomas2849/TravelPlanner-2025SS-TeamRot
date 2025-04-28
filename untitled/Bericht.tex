@@ -1,0 +1,131 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Fachkonzept: TravelPlanner}
+\author{}
+\date{}
+
+\begin{document}
+
+    \maketitle
+
+    \section*{I. Einleitung}
+    \textbf{TravelPlanner} ist eine Webanwendung, die es registrierten Nutzern ermöglicht, Sehenswürdigkeiten in ausgewählten Großstädten zu entdecken und ihre Reise zu planen.
+    Die Plattform bietet eine einfache Benutzeroberfläche mit Funktionen wie Benutzerregistrierung, Login, Städtenavigation und einer Suchfunktion.
+
+    \subsection*{A. Motivation}
+    Reisen ist für viele ein zentrales Hobby. Oft fehlt es aber an kompakten Tools zur strukturierten Planung von Städtereisen.
+    TravelPlanner bietet eine schlanke Lösung für Nutzer, die gezielt attraktive Orte in den beliebtesten Städten finden möchten.
+
+    \subsection*{B. Alleinstellungsmerkmal}
+    TravelPlanner konzentriert sich bewusst auf 5 große, internationale Städte, statt eine überladene Plattform zu sein.
+    Hauptmerkmale:
+    \begin{itemize}
+        \item Minimalistisches, schnelles Interface
+        \item Fokus auf \textbf{Inspiration und Planung}, nicht auf Buchung
+        \item Klare, einfache Nutzerführung
+    \end{itemize}
+
+    \section*{II. Verwandte Arbeiten}
+    Im Vergleich zu Plattformen wie *TripAdvisor* oder *Google Trips*, die komplex und oft werbelastig sind, bietet TravelPlanner eine fokussierte Alternative für gezielte Reisevorbereitung.
+
+    \section*{III. Anforderungen}
+
+    \subsection*{A. MUSS-Anforderungen (Minimum Viable Product – MVP)}
+    \begin{enumerate}
+        \item \textbf{Registrieren} \\
+        Als neuer Nutzer möchte ich mich registrieren, um später persönliche Funktionen nutzen zu können. \\
+        \textit{Akzeptanzkriterien}: Formular mit Username und Passwort, Username muss eindeutig sein, Passwort wird sicher gespeichert (Hashing).
+
+        \item \textbf{Anmelden} \\
+        Als registrierter Nutzer möchte ich mich einloggen können. \\
+        \textit{Akzeptanzkriterien}: Formular für Username und Passwort, Prüfung und Rückmeldung bei falschen Daten.
+
+        \item \textbf{Städte durchsuchen} \\
+        Als Nutzer möchte ich eine Liste der 5 Städte sehen können.
+
+        \item \textbf{Sehenswürdigkeiten anzeigen} \\
+        Als Nutzer möchte ich in jeder Stadt die wichtigsten Attraktionen angezeigt bekommen.
+    \end{enumerate}
+
+    \subsection*{B. SOLL-Anforderungen}
+    \begin{enumerate}
+        \item \textbf{Attraktionen speichern} \\
+        Als eingeloggter Nutzer möchte ich Attraktionen zu meinen Favoriten hinzufügen können. \\
+        \textit{Akzeptanzkriterien}: Button zum Speichern von Attraktionen, Gespeicherte Attraktionen werden mit Nutzer verknüpft.
+
+        \item \textbf{Gespeicherte Orte anzeigen} \\
+        Als Nutzer möchte ich eine Übersicht meiner gespeicherten Attraktionen abrufen können.
+
+        \item \textbf{Stadt-Suchfunktion} \\
+        Als Nutzer möchte ich über eine Suchleiste nach einer Stadt suchen können.
+
+        \item \textbf{Abmelden} \\
+        Als Nutzer möchte ich mich sicher abmelden können.
+    \end{enumerate}
+
+    \subsection*{C. OPTIONAL-Anforderungen}
+    \begin{enumerate}
+        \item \textbf{Attraktion aus Favoriten entfernen} \\
+        Als Nutzer möchte ich gespeicherte Attraktionen wieder löschen können.
+
+        \item \textbf{Profilseite} \\
+        Als Nutzer möchte ich meine Aktivitäten in einer Profilübersicht sehen können.
+
+        \item \textbf{Responsives Design} \\
+        Die Web-App soll auf Mobilgeräten gut nutzbar sein.
+    \end{enumerate}
+
+    \section*{IV. Technisches Grobkonzept}
+    \subsection*{A. Datenbank – MongoDB}
+    Speicherung von:
+    \begin{itemize}
+        \item Benutzerdaten (Username, Passwort-Hash)
+        \item (Optional) Gespeicherten Attraktionen der Nutzer
+    \end{itemize}
+
+    \subsection*{B. Backend – Node.js + Express}
+    Bereitstellung einer \textbf{REST API} für:
+    \begin{itemize}
+        \item Registrierung
+        \item Login
+        \item Abrufen von Städten und Attraktionen
+        \item (Optional) Speichern und Abrufen von Favoriten
+    \end{itemize}
+
+    \subsection*{C. Frontend – HTML, CSS, JavaScript}
+    Grundlegendes Web-Interface mit späterer Option zur Nutzung von \textbf{React.js}.
+
+    \subsection*{D. Hosting – AWS}
+    \begin{itemize}
+        \item \textbf{EC2 Instanz} für Serverbetrieb
+        \item (Optional) \textbf{AWS S3} für statisches Hosting der Webseite
+    \end{itemize}
+
+    \section*{V. Akzeptanzkriterien Übersicht}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Funktion} & \textbf{Akzeptanzkriterium} \\
+        \hline
+        Registrierung & Einzigartiger Username, Passwort sicher gespeichert \\
+        Login & Erfolgreiche Anmeldung oder Fehlermeldung \\
+        Stadtübersicht & 5 Städte werden angezeigt \\
+        Attraktionen anzeigen & Pro Stadt 5–10 Sehenswürdigkeiten sichtbar \\
+        (SOLL) Attraktion speichern & Button vorhanden, Favoritenliste speichert Auswahl \\
+        (SOLL) Gespeicherte Orte anzeigen & Persönliche Favoriten werden angezeigt \\
+        (SOLL) Stadt suchen & Eingabe filtert Städte dynamisch \\
+        \hline
+    \end{tabular}
+
+    \section*{VI. Zielsetzung}
+    \begin{itemize}
+        \item \textbf{Benutzerfreundlichkeit} durch einfache Navigation
+        \item \textbf{Sicherheit} durch sichere Passwortspeicherung
+        \item \textbf{Skalierbarkeit} für spätere Funktionen
+        \item \textbf{Mobile Optimierung} als optionale Erweiterung
+    \end{itemize}
+
+\end{document}
