@@ -1,18 +1,54 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{hyperref}
-
-\title{Fachkonzept: TravelPlanner}
-\author{}
-\date{}
+\usepackage{longtable}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
 
 \begin{document}
 
-    \maketitle
+% ----------------------
+% Titelseite
+% ----------------------
+    \begin{titlepage}
+        \centering
 
-    \section*{I. namwsEinleitung}
+        {\scshape\LARGE Ostbayerische Technische Hochschule Amberg-Weiden \par}
+        \vspace{1.5cm}
+
+        {\huge\bfseries Fachkonzept\par}
+        \vspace{0.5cm}
+        {\Huge\bfseries TravelPlanner\par}
+
+        \vspace{2cm}
+        {\Large Teamname: \textbf{TeamRot}\par}
+        \vspace{0.5cm}
+
+        \begin{flushleft}
+            \textbf{Teammitglieder:}
+            \begin{itemize}
+                \item Thomas Antony – \texttt{t.antony@oth-aw.de}
+                \item Himanshu Mohan Nikam – \texttt{h.nikam@oth-aw.de}
+                \item Djatsa Kantsa Valdo Rabelais – \texttt{v.djatsa-kantsa@oth-aw.de}
+            \end{itemize}
+
+            \vspace{0.5cm}
+            \textbf{Abgabe:} 01. Mai 2025 \\
+            \textbf{Semester:} Sommersemester 2025 \\
+            \textbf{Modul:} BigData, Cloud and NoSQL (BCN) \\
+            \textbf{Betreuer:} Christopher Neumann
+
+        \end{flushleft}
+
+        \vfill
+    \end{titlepage}
+
+% ----------------------
+% Inhaltsseite beginnt hier
+% ----------------------
+
+    \section*{I. Einleitung}
     \textbf{TravelPlanner} ist eine Webanwendung, die es registrierten Nutzern ermöglicht, Sehenswürdigkeiten in ausgewählten Großstädten zu entdecken und ihre Reise zu planen.
     Die Plattform bietet eine einfache Benutzeroberfläche mit Funktionen wie Benutzerregistrierung, Login, Städtenavigation und einer Suchfunktion.
 
@@ -30,7 +66,7 @@
     \end{itemize}
 
     \section*{II. Verwandte Arbeiten}
-    Im Vergleich zu Plattformen wie *TripAdvisor* oder *Google Trips*, die komplex und oft werbelastig sind, bietet TravelPlanner eine fokussierte Alternative für gezielte Reisevorbereitung.
+    Im Vergleich zu Plattformen wie \textit{TripAdvisor} oder \textit{Google Trips}, die komplex und oft werbelastig sind, bietet TravelPlanner eine fokussierte Alternative für gezielte Reisevorbereitung.
 
     \section*{III. Anforderungen}
 
@@ -106,19 +142,26 @@
     \end{itemize}
 
     \section*{V. Akzeptanzkriterien Übersicht}
-    \begin{tabular}{|c|c|}
+
+    \begin{longtable}{|p{6cm}|p{8cm}|}
         \hline
         \textbf{Funktion} & \textbf{Akzeptanzkriterium} \\
         \hline
         Registrierung & Einzigartiger Username, Passwort sicher gespeichert \\
+        \hline
         Login & Erfolgreiche Anmeldung oder Fehlermeldung \\
+        \hline
         Stadtübersicht & 5 Städte werden angezeigt \\
+        \hline
         Attraktionen anzeigen & Pro Stadt 5–10 Sehenswürdigkeiten sichtbar \\
+        \hline
         (SOLL) Attraktion speichern & Button vorhanden, Favoritenliste speichert Auswahl \\
+        \hline
         (SOLL) Gespeicherte Orte anzeigen & Persönliche Favoriten werden angezeigt \\
+        \hline
         (SOLL) Stadt suchen & Eingabe filtert Städte dynamisch \\
         \hline
-    \end{tabular}
+    \end{longtable}
 
     \section*{VI. Zielsetzung}
     \begin{itemize}
